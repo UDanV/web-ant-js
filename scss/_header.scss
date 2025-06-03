@@ -1,0 +1,14 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 210px;
+  align-items: center;
+  box-shadow: -2px 0px 8px 2px rgba(0, 0, 0, 0.10);
+
+  &__links {
+    display: flex;
+    list-style: none;
+    font-weight: 700;
+    gap: 24px;
+  }
+}

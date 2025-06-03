@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Episodes</title>
+    <link rel="stylesheet" href="scss/all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="header">
+  <img src="./assets/logo.png" alt="">
+  <div class="header__content">
+    <ul class="header__links">
+      <li><a href="./index.html">Characters</a></li>
+      <li><a href="./locations.html">Locations</a></li>
+      <li><a href="#">Episodes</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="main">
+  <div class="main__image">
+    <img src="./assets/episodes--img.png" alt="">
+  </div>
+  <div class="main__filter">
+    <div class="filter-group search-group">
+      <input type="text" class="filter-input" placeholder="Filter by name...">
+    </div>
+  </div>
+</section>
+
+<section class="cards">
+  <div class="cards__content"></div>
+  <button class="pagination">Load more</button>
+</section>
+
+
+</body>
+<script type="module" src="./js/api/episodes.js"></script>
+</html>

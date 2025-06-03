@@ -1,0 +1,51 @@
+@import '../variables';
+
+.details {
+  padding: 0 210px;
+
+  &__title {
+    text-align: center;
+
+    h1 {
+      color: $basic-black;
+      font-size: 36px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  }
+
+  &__content {
+    text-align: left;
+    display: flex;
+    justify-content: space-evenly;
+
+    h3 {
+      margin: 0;
+    }
+
+    p {
+      margin: 0;
+      color: $gray-color;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 20px;
+      letter-spacing: 0.25px;
+    }
+  }
+}
+
+.list {
+
+  h3 {
+    padding-left: 220px;
+    color: $gray-color;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0.15px;
+  }
+
+}

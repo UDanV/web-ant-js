@@ -1,0 +1,59 @@
+@import '../variables';
+
+.info {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 0 210px;
+  margin: 40px;
+
+  &__details {
+    display: flex;
+    flex: 1 1 0;
+    flex-direction: column;
+
+    h2 {
+      color: $gray-color;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 24px;
+      letter-spacing: 0.15px;
+    }
+  }
+
+  &__card {
+    border-bottom: 1px solid #eee;
+    padding: 12px 16px;
+    width: 100%;
+
+    h3 {
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 24px;
+      letter-spacing: 0.15px;
+      margin: 0;
+    }
+
+    p {
+      color: #6E798C;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 20px;
+      letter-spacing: 0.25px;
+      margin: 0;
+    }
+
+    small {
+      color: $gray-color;
+      font-size: 10px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 16px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+  }
+}
