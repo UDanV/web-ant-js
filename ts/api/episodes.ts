@@ -1,23 +1,27 @@
 import {Episode} from "../types/episode";
 
 const API_URL = "https://rickandmortyapi.com/api/episode";
-let currentPage = 1;
-let hasMorePages = true;
 
 const cardsContainer = document.querySelector('.cards__content') as HTMLElement;
-const loadMoreButton = document.querySelector('.pagination') as HTMLButtonElement;
 
-async function fetchEpisode(page: number): Promise<Episode[]> {
-    const response = await fetch(`${API_URL}?page=${page}`);
-    const data = await response.json();
-    hasMorePages = data.info.next !== null;
-    return data.results;
+export async function fetchEpisodes(page: number, filters: { name?: string } = {}): Promise<{ results: Episode[], info: any }> {
+    const url = new URL(API_URL);
+    url.searchParams.set("page", page.toString());
+    if (filters.name) {
+        url.searchParams.set("name", filters.name);
+    }
+
+    const response = await fetch(url.toString());
+    if (!response.ok) throw new Error("Ошибка загрузки эпизодов");
+
+    return await response.json();
 }
 
-function renderEpisode(characters: Episode[]): void {
-    characters.forEach((episode) => {
+export function renderEpisode(episodes: Episode[]): void {
+    episodes.forEach((episode) => {
         const card = document.createElement('div');
-        card.className = 'card card__location'
+        card.className = 'card card__location';
+        card.dataset.id = episode.id.toString();
 
         card.innerHTML = `
             <h2>${episode.name}</h2>
@@ -25,22 +29,10 @@ function renderEpisode(characters: Episode[]): void {
             <small>${episode.episode}</small>
         `;
 
-        cardsContainer.appendChild(card)
-    })
+        card.addEventListener('click', () => {
+            window.location.href = `episode-details.html?id=${episode.id}`;
+        });
+
+        cardsContainer.appendChild(card);
+    });
 }
-
-async function loadEpisode(): Promise<void> {
-    const characters = await fetchEpisode(currentPage);
-    renderEpisode(characters);
-    currentPage++;
-
-    if (!hasMorePages) {
-        loadMoreButton.style.display = 'none';
-    }
-}
-
-loadEpisode();
-
-loadMoreButton.addEventListener('click', () => {
-    loadEpisode();
-})

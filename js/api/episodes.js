@@ -8,42 +8,33 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const API_URL = "https://rickandmortyapi.com/api/episode";
-let currentPage = 1;
-let hasMorePages = true;
 const cardsContainer = document.querySelector('.cards__content');
-const loadMoreButton = document.querySelector('.pagination');
-function fetchEpisode(page) {
-    return __awaiter(this, void 0, void 0, function* () {
-        const response = yield fetch(`${API_URL}?page=${page}`);
-        const data = yield response.json();
-        hasMorePages = data.info.next !== null;
-        return data.results;
+export function fetchEpisodes(page_1) {
+    return __awaiter(this, arguments, void 0, function* (page, filters = {}) {
+        const url = new URL(API_URL);
+        url.searchParams.set("page", page.toString());
+        if (filters.name) {
+            url.searchParams.set("name", filters.name);
+        }
+        const response = yield fetch(url.toString());
+        if (!response.ok)
+            throw new Error("Ошибка загрузки эпизодов");
+        return yield response.json();
     });
 }
-function renderEpisode(characters) {
-    characters.forEach((episode) => {
+export function renderEpisode(episodes) {
+    episodes.forEach((episode) => {
         const card = document.createElement('div');
         card.className = 'card card__location';
+        card.dataset.id = episode.id.toString();
         card.innerHTML = `
             <h2>${episode.name}</h2>
             <p>${episode.air_date}</p>
             <small>${episode.episode}</small>
         `;
+        card.addEventListener('click', () => {
+            window.location.href = `episode-details.html?id=${episode.id}`;
+        });
         cardsContainer.appendChild(card);
     });
 }
-function loadEpisode() {
-    return __awaiter(this, void 0, void 0, function* () {
-        const characters = yield fetchEpisode(currentPage);
-        renderEpisode(characters);
-        currentPage++;
-        if (!hasMorePages) {
-            loadMoreButton.style.display = 'none';
-        }
-    });
-}
-loadEpisode();
-loadMoreButton.addEventListener('click', () => {
-    loadEpisode();
-});
-export {};

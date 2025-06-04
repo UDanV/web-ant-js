@@ -8,46 +8,41 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const API_URL = "https://rickandmortyapi.com/api/character";
-let currentPage = 1;
-let hasMorePages = true;
 const cardsContainer = document.querySelector('.cards__content');
-const loadMoreButton = document.querySelector('.pagination');
-function fetchCharacters(page) {
-    return __awaiter(this, void 0, void 0, function* () {
-        const response = yield fetch(`${API_URL}?page=${page}`);
+export function fetchCharacters(page_1) {
+    return __awaiter(this, arguments, void 0, function* (page, filters = {}) {
+        const url = new URL(API_URL);
+        url.searchParams.set("page", page.toString());
+        Object.entries(filters).forEach(([key, value]) => {
+            if (value)
+                url.searchParams.set(key, value);
+        });
+        const response = yield fetch(url.toString());
+        if (!response.ok)
+            throw new Error("Ошибка загрузки персонажей");
         const data = yield response.json();
-        hasMorePages = data.info.next !== null;
-        return data.results;
+        return data;
     });
 }
-function renderCharacters(characters) {
-    characters.forEach((characters) => {
+export function renderCharacters(characters) {
+    if (!Array.isArray(characters))
+        return;
+    characters.forEach((character) => {
         const card = document.createElement('div');
         card.className = 'card';
+        card.dataset.id = character.id.toString();
         card.innerHTML = `
             <div class="card__image">
-                <img src="${characters.image}" alt="${characters.name}">
+                <img src="${character.image}" alt="${character.name}">
             </div>
             <div class="card__text">
-              <h2>${characters.name}</h2>
-              <p>${characters.species}</p>
+              <h2>${character.name}</h2>
+              <p>${character.species}</p>
             </div>
         `;
+        card.addEventListener('click', () => {
+            window.location.href = `character-details.html?id=${character.id}`;
+        });
         cardsContainer.appendChild(card);
     });
 }
-function loadCharacters() {
-    return __awaiter(this, void 0, void 0, function* () {
-        const characters = yield fetchCharacters(currentPage);
-        renderCharacters(characters);
-        currentPage++;
-        if (!hasMorePages) {
-            loadMoreButton.style.display = 'none';
-        }
-    });
-}
-loadCharacters();
-loadMoreButton.addEventListener('click', () => {
-    loadCharacters();
-});
-export {};

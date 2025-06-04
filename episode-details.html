@@ -18,6 +18,19 @@
             <li><a href="./episodes.html">Episodes</a></li>
         </ul>
     </div>
+    <div class="header__mobile">
+        <button class="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+        </button>
+        <ul class="header__mobile--links" id="mobile-menu" hidden>
+            <button class="header__mobile--close" aria-label="Close menu"></button>
+            <li><a href="./index.html">Characters</a></li>
+            <li><a href="./locations.html">Locations</a></li>
+            <li><a href="./episodes.html">Episodes</a></li>
+        </ul>
+    </div>
 </header>
 
 <section class="details">
@@ -30,15 +43,15 @@
         </div>
     </a>
     <div class="details__title">
-        <h1>Pilot</h1>
+        <h1></h1>
         <div class="details__content">
             <div class="details__info">
                 <h3>Episode</h3>
-                <p>SE01E01</p>
+                <p class="code"></p>
             </div>
             <div class="details__info">
                 <h3>Date</h3>
-                <p>December 2, 2013</p>
+                <p class="date"></p>
             </div>
         </div>
     </div>
@@ -47,81 +60,12 @@
 <section class="list">
     <h3>Cast</h3>
     <div class="cards__content">
-        <div class="card">
-            <div class="card__image">
-                <img src="./assets/rick.jpg" alt="">
-            </div>
-            <div class="card__text">
-                <h2>Rick Sanchez</h2>
-                <p>Human</p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__image">
-                <img src="./assets/rick.jpg" alt="">
-            </div>
-            <div class="card__text">
-                <h2>Rick Sanchez</h2>
-                <p>Human</p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__image">
-                <img src="./assets/rick.jpg" alt="">
-            </div>
-            <div class="card__text">
-                <h2>Rick Sanchez</h2>
-                <p>Human</p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__image">
-                <img src="./assets/rick.jpg" alt="">
-            </div>
-            <div class="card__text">
-                <h2>Rick Sanchez</h2>
-                <p>Human</p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__image">
-                <img src="./assets/rick.jpg" alt="">
-            </div>
-            <div class="card__text">
-                <h2>Rick Sanchez</h2>
-                <p>Human</p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__image">
-                <img src="./assets/rick.jpg" alt="">
-            </div>
-            <div class="card__text">
-                <h2>Rick Sanchez</h2>
-                <p>Human</p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__image">
-                <img src="./assets/rick.jpg" alt="">
-            </div>
-            <div class="card__text">
-                <h2>Rick Sanchez</h2>
-                <p>Human</p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__image">
-                <img src="./assets/rick.jpg" alt="">
-            </div>
-            <div class="card__text">
-                <h2>Rick Sanchez</h2>
-                <p>Human</p>
-            </div>
-        </div>
+        <div class="card"></div>
     </div>
 </section>
 
 
 </body>
+<script type="module" src="js/api/current-episode.js"></script>
+<script type="module" src="./js/burger.js"></script>
 </html>

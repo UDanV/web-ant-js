@@ -19,6 +19,19 @@
       <li><a href="./episodes.html">Episodes</a></li>
     </ul>
   </div>
+    <div class="header__mobile">
+        <button class="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+        </button>
+        <ul class="header__mobile--links" id="mobile-menu" hidden>
+            <button class="header__mobile--close" aria-label="Close menu"></button>
+            <li><a href="#">Characters</a></li>
+            <li><a href="./locations.html">Locations</a></li>
+            <li><a href="./episodes.html">Episodes</a></li>
+        </ul>
+    </div>
 </header>
 
 <section class="main">
@@ -68,4 +81,6 @@
 
 </body>
 <script type="module" src="./js/api/characters.js"></script>
+<script type="module" src="./js/api/filter-characters.js"></script>
+<script type="module" src="./js/burger.js"></script>
 </html>
