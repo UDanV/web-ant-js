@@ -36,6 +36,7 @@ function loadCharacters() {
             cardsContainer.innerHTML = "";
         }
         currentFilters = getCharacterFilters();
+        loadMoreButton.disabled = true;
         try {
             const data = yield fetchCharacters(currentPage, currentFilters);
             hasMorePages = data.info.next !== null;
@@ -47,8 +48,12 @@ function loadCharacters() {
             console.error("Ошибка при загрузке персонажей:", error);
             if (reset) {
                 cardsContainer.innerHTML = "<p class='no-results'>Ничего не найдено</p>";
+                loadMoreButton.style.display = 'none';
             }
             loadMoreButton.style.display = "none";
+        }
+        finally {
+            loadMoreButton.disabled = false;
         }
     });
 }

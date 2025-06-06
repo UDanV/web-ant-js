@@ -23,7 +23,7 @@ export function renderLocation(locations: Location[]): void {
     });
 }
 
-async function fetchLocation(page: number, filters: typeof filterState.currentFilters): Promise<Location[]> {
+export async function fetchLocation(page: number, filters: typeof filterState.currentFilters): Promise<Location[]> {
     const url = new URL("https://rickandmortyapi.com/api/location/");
     url.searchParams.set("page", page.toString());
 

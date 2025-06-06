@@ -75,10 +75,14 @@ async function renderEpisodes(episodeUrls: string[]): Promise<void> {
 
     episodes.forEach((episode) => {
         const episodeDate = new Date(episode.air_date).toLocaleDateString();
+        const episodeId = episode.url.split('/').pop();
+
         episodesContainer.innerHTML += `
             <div class="info__card">
-                <h3>${episode.episode}</h3>
-                <p>${episode.name}</p>
+                <a href="./episode-details.html?id=${episodeId}" class="episode-link">
+                    <h3>${episode.episode}</h3>
+                    <p>${episode.name}</p>
+                </a>
                 <small>${episodeDate}</small>
             </div>
         `;

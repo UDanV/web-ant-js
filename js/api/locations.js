@@ -25,7 +25,7 @@ export function renderLocation(locations) {
         cardsContainer.appendChild(card);
     });
 }
-function fetchLocation(page, filters) {
+export function fetchLocation(page, filters) {
     return __awaiter(this, void 0, void 0, function* () {
         var _a;
         const url = new URL("https://rickandmortyapi.com/api/location/");

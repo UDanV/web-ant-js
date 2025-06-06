@@ -114,6 +114,94 @@
             </select>
         </div>
     </div>
+
+    <button class="filter-mobile-button">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8.33333 15H11.6667V13.3333H8.33333V15ZM2.5 5V6.66667H17.5V5H2.5ZM5 10.8333H15V9.16667H5V10.8333Z" fill="#686F74"/>
+        </svg>
+        Advanced Filters
+    </button>
+
+    <div class="filter-modal">
+        <div class="filter-modal__content">
+            <button class="filter-modal__close" aria-label="Close filters">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" fill="currentColor"/>
+                </svg>
+            </button>
+            <h3 class="filter-modal__title">Filters</h3>
+            <div class="filter-group">
+                <select class="filter-select" id="modalFilterType">
+                    <option value="" disabled selected>Type</option>
+                    <option value="Planet">Planet</option>
+                    <option value="Cluster">Cluster</option>
+                    <option value="Space station">Space station</option>
+                    <option value="Microverse">Microverse</option>
+                    <option value="TV">TV</option>
+                    <option value="Resort">Resort</option>
+                    <option value="Fantasy town">Fantasy town</option>
+                    <option value="Dream">Dream</option>
+                    <option value="Dimension">Dimension</option>
+                    <option value="Menagerie">Menagerie</option>
+                    <option value="Game">Game</option>
+                    <option value="Arcade">Arcade</option>
+                    <option value="Spa">Spa</option>
+                    <option value="Quasar">Quasar</option>
+                    <option value="Convention">Convention</option>
+                    <option value="Woods">Woods</option>
+                    <option value="Diegesis">Diegesis</option>
+                    <option value="Nightmare">Nightmare</option>
+                    <option value="Non-Diegetic Alternative Reality">Non-Diegetic Alternative Reality</option>
+                    <option value="Asteroid">Asteroid</option>
+                    <option value="Base">Base</option>
+                    <option value="Hell">Hell</option>
+                    <option value="Country">Country</option>
+                    <option value="Consciousness">Consciousness</option>
+                    <option value="Machine">Machine</option>
+                    <option value="Spacecraft">Spacecraft</option>
+                    <option value="Artificially generated world">Artificially generated world</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <select class="filter-select" id="modalFilterDimension">
+                    <option value="" disabled selected>Dimension</option>
+                    <option value="Dimension C-137">Dimension C-137</option>
+                    <option value="Post-Apocalyptic Dimension">Post-Apocalyptic Dimension</option>
+                    <option value="Replacement Dimension">Replacement Dimension</option>
+                    <option value="Cronenberg Dimension">Cronenberg Dimension</option>
+                    <option value="Fantasy Dimension">Fantasy Dimension</option>
+                    <option value="Dimension 5-126">Dimension 5-126</option>
+                    <option value="Testicle Monster Dimension">Testicle Monster Dimension</option>
+                    <option value="Cromulon Dimension">Cromulon Dimension</option>
+                    <option value="Dimension C-500A">Dimension C-500A</option>
+                    <option value="Dimension K-83">Dimension K-83</option>
+                    <option value="Dimension J19ζ7">Dimension J19ζ7</option>
+                    <option value="Eric Stoltz Mask Dimension">Eric Stoltz Mask Dimension</option>
+                    <option value="Evil Rick's Target Dimension">Evil Rick's Target Dimension</option>
+                    <option value="Giant Telepathic Spiders Dimension">Giant Telepathic Spiders Dimension</option>
+                    <option value="Unknown dimension">Unknown dimension</option>
+                    <option value="Dimension K-22">Dimension K-22</option>
+                    <option value="Dimension D-99">Dimension D-99</option>
+                    <option value="Dimension D716">Dimension D716</option>
+                    <option value="Dimension D716-B">Dimension D716-B</option>
+                    <option value="Dimension D716-C">Dimension D716-C</option>
+                    <option value="Dimension J-22">Dimension J-22</option>
+                    <option value="Dimension C-35">Dimension C-35</option>
+                    <option value="Pizza Dimension">Pizza Dimension</option>
+                    <option value="Phone Dimension">Phone Dimension</option>
+                    <option value="Chair Dimension">Chair Dimension</option>
+                    <option value="Fascist Dimension">Fascist Dimension</option>
+                    <option value="Fascist Shrimp Dimension">Fascist Shrimp Dimension</option>
+                    <option value="Fascist Teddy Bear Dimension">Fascist Teddy Bear Dimension</option>
+                    <option value="Wasp Dimension">Wasp Dimension</option>
+                    <option value="Tusk Dimension">Tusk Dimension</option>
+                    <option value="Magic Dimension">Magic Dimension</option>
+                    <option value="Merged Dimension">Merged Dimension</option>
+                </select>
+            </div>
+            <button class="filter-modal__apply" id="modalApplyFilters">Apply filters</button>
+        </div>
+    </div>
 </section>
 
 <section class="cards">
@@ -125,4 +213,5 @@
 <script type="module" src="./js/api/locations.js"></script>
 <script type="module" src="./js/api/filter-locations.js"></script>
 <script type="module" src="./js/burger.js"></script>
+<script type="module" src="./js/modal-filter-locations.js"></script>
 </html>

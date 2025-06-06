@@ -40,6 +40,7 @@ async function loadCharacters(reset: boolean = false): Promise<void> {
     }
 
     currentFilters = getCharacterFilters();
+    loadMoreButton.disabled = true;
 
     try {
         const data = await fetchCharacters(currentPage, currentFilters);
@@ -51,8 +52,11 @@ async function loadCharacters(reset: boolean = false): Promise<void> {
         console.error("Ошибка при загрузке персонажей:", error);
         if (reset) {
             cardsContainer.innerHTML = "<p class='no-results'>Ничего не найдено</p>";
+            loadMoreButton.style.display = 'none';
         }
         loadMoreButton.style.display = "none";
+    } finally {
+        loadMoreButton.disabled = false;
     }
 }
 
